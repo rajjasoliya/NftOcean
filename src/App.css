@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+h1.heading{
+  margin:"50px auto";
+  padding:"20px auto";
+  background:linear-gradient(to right,rgb(206, 113, 240),purple);
+  -webkit-background-clip:"text";
+  -webkit-text-fill-color: 0px 5px 5px white;
+  color:lightgreen;
+}

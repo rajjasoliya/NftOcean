@@ -1,0 +1,23 @@
+.card{
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-gap:20px;
+}
+/* .cardText{
+        
+    background:red;
+    background:linear-gradient(to right, red,rgb(226, 126, 126));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.cardText2{
+        
+    background:red;
+    background:linear-gradient(to left, red,rgb(226, 126, 126));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+} */

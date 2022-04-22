@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, {
+  Component
+} from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './index.css';
+import Search from './components/search/Search'
+import Home from './components/home/Home'
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      category: [],
+      search: ''
+    }
+  }
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json()).then(users => this.setState({
+      category: users
+    }));
+  }
+  render() {
+    const { category, search} = this.state;
+    const filteredNFTs = category.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
+    this.handleChange = e => (e => this.setState({ search: e.target.value}))
+    return ( <div className = "App" >
+      {/* <input type = "search"
+      id = "search"
+      placeholder = "search your NFTs"
+      onChange = {
+        (e) => { this.setState({ search: e.target.value }) }
+      }
+      /> */}
+      <h1 className="heading">NFT Market</h1>
+       <Search handleChange={this.handleChange()} />
+       <Home category = {filteredNFTs}/> </div>
+    );
+  }
 }
-
-export default App;
